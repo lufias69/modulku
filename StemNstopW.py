@@ -20,6 +20,22 @@ def getData(alamat):
     return lineList
 
 # @cuda.jit(device=True)
+
+def save_kta():
+    last_use_k = list()
+    with open(dir_path + '/' +"data_stemmer/last_use_k.txt", "w") as f:
+        for s in last_use_k:
+            f.write(str(s) +"\n")
+            
+    last_use_r = list()
+    with open(dir_path + '/' +"data_stemmer/last_use_r.txt", "w") as f:
+        for s in last_use_r:
+            f.write(str(s) +"\n")
+    last_use_aneh = list()        
+    with open(dir_path + '/' +"data_stemmer/last_use_aneh.txt", "w") as f:
+        for s in last_use_aneh:
+            f.write(str(s) +"\n")
+
 def save_kta():    
     with open(dir_path + '/' +"data_stemmer/last_use_k.txt", "w") as f:
         for s in last_use_k:
@@ -35,6 +51,7 @@ last_use_k = getData('data_stemmer/last_use_k.txt')
 last_use_r = getData('data_stemmer/last_use_r.txt')
 last_use_aneh = getData('data_stemmer/last_use_aneh.txt')
 kata_dasar = getData('data_stemmer/kata-dasar.txt')
+
 # last_use_k = list()
 # last_use_r = list()
 # last_use_aneh = list()
@@ -54,7 +71,7 @@ def stemmer_kata(teks):
             else:
                 if kt not in last_use_aneh:
                     last_use_aneh.append(kt)
-    # save_kta()
+    save_kta()
     return " ".join(teks_s)
 
 def stop_word(kata):
