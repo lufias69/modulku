@@ -37,8 +37,6 @@ def stemmer_stopWord(str):
     teks = stopword.remove(teks)
     return teks
 
-
-
 def replace_word(teks):
     teks_tokenize = teks.split()
     for j in range(len(teks_tokenize)):
@@ -72,7 +70,8 @@ def gantiKarakter(string, x=x, y=y):
     return unidecode(n_word).lower()
 
 def normalAt(str):
-    ok = gantiKarakter(str)
+    # ok = gantiKarakter(str)
+    ok = str.lower()
     n_w = []
     for i in range(len(ok)):
         if ok[i] == "@" and i !=0 and ok[i-1] !=" ":
